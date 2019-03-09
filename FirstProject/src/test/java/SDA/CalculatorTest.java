@@ -39,13 +39,16 @@ public class CalculatorTest {
         int result = calculator.mnozenie(2,3);
         Assert.assertEquals(6,result);
     }
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testDzielenie() {
+Double result = null;
+try{
+    result = calculator.dzielenie(new Double(4), new Double(0));
+}catch (ArithmeticException exception ){
 
-        Double result = calculator.dzielenie(new Double(4), new Double(0));
-//        Assert.assertEquals(Double.valueOf(2.0), result);
         Assert.assertNull(result);
-    }
+        Assert.assertEquals(exception.getMessage(),"Incorrect value");
+    }}
 
     @Test
     public void silnia( )throws Exception{

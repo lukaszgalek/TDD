@@ -27,4 +27,10 @@ public class Calculator {
 //        }
         return a/b;
     }
+    public int silnia(int a ){
+        if(a==1){
+            return 1;
+        }
+       return a*silnia(a-1);
+    }
 }

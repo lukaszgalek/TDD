@@ -13,11 +13,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-//@RunWith(JUnitParamsRunner.class)
-@RunWith(Parameterized.class)
+@RunWith(JUnitParamsRunner.class)
+//@RunWith(Parameterized.class)
 public class CalculatorTest {
 
     private Calculator calculator;
+
+    /** --------------------------Paramererized.class-----------
     private Integer value;
 
     public CalculatorTest(Integer value){
@@ -40,12 +42,13 @@ public static Collection getParameters(){
         int result = calculator.mnozenie(value, value);
         Assert.assertEquals(value* value, result);
     }
+**/
 
-//    @Before
-//    public void setUp() throws Exception {
-//        this.calculator = new Calculator();
-//    }
-//
+    @Before
+    public void setUp() throws Exception {
+        this.calculator = new Calculator();
+    }
+
 //    @Test
 //    @Parameters({"3,2,", "4,4", "8,2"})
 //    public void testAdding(int a, int b) throws Exception {
@@ -66,6 +69,12 @@ public static Collection getParameters(){
 
         Double result = calculator.dzielenie(4, 2);
         Assert.assertEquals(Double.valueOf(2.0), result);
+    }
+
+    @Test
+    public void silnia( )throws Exception{
+       int result = calculator.silnia(4);
+       Assert.assertEquals(24,result);
     }
 // miejsca po przecinku możńa określić
 //    @Test

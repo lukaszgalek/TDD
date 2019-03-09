@@ -22,9 +22,9 @@ public class Calculator {
         return a*b;
     }
     public double dzielenie ( double a, double b ){
-//        if (b==0 ){
-//            //można rzucić wyjątkiem
-//        }
+        if (b==0 || a==0  ){
+            throw new ArithmeticException("Incorrect value");
+        }
         return a/b;
     }
     public int silnia(int a ){

@@ -26,11 +26,25 @@ public class CalculatorTest {
         this.calculator = new Calculator();
     }
 
+
+
     @Test
+    public void testRoznica() {
+        int result = calculator.roznica(3,1);
+        Assert.assertEquals(2,result);
+    }
+
+    @Test
+    public void testMnozenie() {
+        int result = calculator.mnozenie(2,3);
+        Assert.assertEquals(6,result);
+    }
+    @Test(expected = ArithmeticException.class)
     public void testDzielenie() {
 
-        Double result = calculator.dzielenie(4, 2);
-        Assert.assertEquals(Double.valueOf(2.0), result);
+        Double result = calculator.dzielenie(new Double(4), new Double(0));
+//        Assert.assertEquals(Double.valueOf(2.0), result);
+        Assert.assertNull(result);
     }
 
     @Test

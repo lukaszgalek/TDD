@@ -19,51 +19,13 @@ public class CalculatorTest {
 
     private Calculator calculator;
 
-    /** --------------------------Paramererized.class-----------
-    private Integer value;
 
-    public CalculatorTest(Integer value){
-        this.value = value;
-    }
-@Parameterized.Parameters
-public static Collection getParameters(){
-        return  Arrays.asList(
-                new Integer[][]{
-                        {10},
-                        {20},
-                        {30}
-                });
-                }
-
-
-    @Test
-    public void testMnozenie() {
-    calculator = new Calculator();
-        int result = calculator.mnozenie(value, value);
-        Assert.assertEquals(value* value, result);
-    }
-**/
 
     @Before
     public void setUp() throws Exception {
         this.calculator = new Calculator();
     }
 
-//    @Test
-//    @Parameters({"3,2,", "4,4", "8,2"})
-//    public void testAdding(int a, int b) throws Exception {
-//        Assert.assertEquals(a + b, calculator.add(a, b));
-//    }
-//
-//    @Test
-//    @Parameters({"2,2,0", "4,2,2"})
-//    public void testRoznica(int a, int b, int c) throws Exception {
-//
-//        Assert.assertEquals(c, calculator.roznica(a, b));
-//    }
-
-
-    // dzieki rzutowaniiu na obiekt Double nie trzeba delty po przecinku
     @Test
     public void testDzielenie() {
 
@@ -76,11 +38,5 @@ public static Collection getParameters(){
        int result = calculator.silnia(4);
        Assert.assertEquals(24,result);
     }
-// miejsca po przecinku możńa określić
-//    @Test
-//    public void testDzielenie() {
-//
-//        double result = calculator.dzielenie(4,2);
-//        Assert.assertEquals(5.0,result, 2);
-//    }
+
 }

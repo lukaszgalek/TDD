@@ -2,9 +2,12 @@ package SDA;
 
 import junitparams.JUnitParamsRunner;
 //import junitparams.Parameters;
+import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -39,21 +42,28 @@ public class CalculatorTest {
         int result = calculator.mnozenie(2,3);
         Assert.assertEquals(6,result);
     }
+
+    @Rule
+    public ExpectedException wyjatek = ExpectedException.none();
     @Test
     public void testDzielenie() {
-Double result = null;
-try{
-    result = calculator.dzielenie(new Double(4), new Double(0));
-}catch (ArithmeticException exception ){
+
+wyjatek.expect(ArithmeticException.class);
+wyjatek.expectMessage("Incorrect value");
+   Double result = calculator.dzielenie(new Double(4), new Double(0));
+
 
         Assert.assertNull(result);
-        Assert.assertEquals(exception.getMessage(),"Incorrect value");
-    }}
+
+    }
 
     @Test
-    public void silnia( )throws Exception{
-       int result = calculator.silnia(4);
-       Assert.assertEquals(24,result);
+    @Parameters({"-4,24","-4,24","-8,2"})
+    public void silnia( int a, int b ){
+        wyjatek.expect(IllegalArgumentException.class);
+        wyjatek.expectMessage("Incorrect value");
+       int result = calculator.silnia(a);
+       Assert.assertEquals(b,result);
     }
 
 }

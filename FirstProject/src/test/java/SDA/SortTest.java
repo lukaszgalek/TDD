@@ -22,7 +22,7 @@ private int []tab = {7,3,5,1};
     }
 
     @Test
-    public void sortowanie() {
+    public void sortowanie() throws SortingException{
        int [] result =  sort.sortowanie(tab);
         Arrays.sort(tab);
 

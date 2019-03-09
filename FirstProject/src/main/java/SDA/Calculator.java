@@ -1,5 +1,7 @@
 package SDA;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 public class Calculator {
 //    private int liczba1;
 //    private int liczba2;
@@ -28,9 +30,13 @@ public class Calculator {
         return a/b;
     }
     public int silnia(int a ){
+        if((a <= 0) ){
+            throw new IllegalArgumentException("Incorrect value");
+        }
         if(a==1){
             return 1;
         }
+
        return a*silnia(a-1);
     }
 }
